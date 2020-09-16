@@ -1,0 +1,88 @@
+import time
+import pyttsx3
+
+Computer = pyttsx3.init();
+voices = Computer.getProperty('voices');
+print(voices);
+Computer.setProperty('voice', voices[0].id)
+u_name = 'fhouse123'
+pwd = 774936;
+com_name = 'Google Pvt. Ltd.';
+
+
+class google_pvt_ltd:
+    def __init__(self, Ename, Ework, Esallary, Estatus):
+        self.name = Ename;
+        self.work = Ework;
+        self.sal = Esallary;
+        self.status = Estatus;
+
+    def show_date(self):
+        print(f'Employee name is :{self.name}')
+        print(f'Employee\'s Work is :{self.work}')
+        print(f'Employee\'s sallary is :{self.sal}')
+        print(f'Employee Status is :{self.status}')
+
+
+def create_new_employee():
+    print('Please enter the below given details :');
+    Cnew_name = input('New Employee\'s name :');
+    Cnew_sallary = input('New Employee\'s work :');
+    Cnew_work = input('New Employee\'s sallary :');
+    Cnew_status = input('New Employee\'s statue :');
+    new_name = Cnew_name;
+    new_work = Cnew_work;
+    new_sallary = Cnew_sallary;
+    new_status = Cnew_status;
+
+    new_name = google_pvt_ltd(new_name, new_work, new_sallary, new_status);
+    print('Creating new employee...')
+    time.sleep(1);
+    print('Please Wait...');
+    time.sleep(2);
+    print()
+    new_name.show_date();
+    try:
+        employee_list = [];
+        employee_list.append(Cnew_name + ',');
+        employee_list.append(Cnew_work + ',');
+        employee_list.append(Cnew_sallary + ',');
+        employee_list.append(Cnew_status + ',');
+
+        # converting list into string
+        all_employees_string = '';
+        final_list_send = (all_employees_string.join(employee_list));
+        f = open('employeedatabase.txt.txt', 'a')
+        f.write(final_list_send);
+        f.close();
+        # f=open('employeedatabase.txt.txt', 'r');
+        # print(f.read());
+        Computer.say('New Employee created successfully');
+        Computer.runAndWait();
+    except Exception as anError:
+        print(anError);
+
+
+# create_new_employee();
+
+print(f'Welcome to the Employee\'s Database of {com_name}');
+print('Before Doing anything i need your Pwd and username for security purpose ');
+user_name = input('Enter your user name :');
+user_pwd = int(input('Enter your Pwd :'));
+
+if (user_name == u_name and user_pwd == pwd):
+    print(f'Welcome: {u_name}');
+    print('Select from the list of below givens :');
+    actions = ['Create new Employee[1]', 'Check a Employee Details[2]', 'Exit[0]'];
+    for i in actions:
+        print(i);
+    print()
+    user_selection1 = int(input());
+    if user_selection1 == 1:
+        print('Please wait starting the system');
+        time.sleep(2)
+        create_new_employee()
+    elif user_selection1 == 0:
+        print()
+    else:
+        print('Sorry wrong input...')
