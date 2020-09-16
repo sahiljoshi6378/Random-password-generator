@@ -1,0 +1,106 @@
+#guess the number game
+def main_game():
+    from time import sleep
+    import random
+    random_number = 0;
+    print('WELCOME TO GUess the number Game')
+    while (True):
+        should_start = input('Should we start the game :');
+        if (should_start == 'y' or should_start == 'yes'):
+            print('Game is Loading...')
+            sleep(2)
+            break
+        else:
+            continue
+    user_name = input('Enter your name to continue :');
+    print('Please select the game level :' + ' ' + user_name)
+    game_levels = ['Simple', 'Hard', 'Very Hard'];
+    for a in game_levels:
+        print(a, end="\n");
+        sleep(0.5)
+    user_selected = input('Your selection :');
+    if (user_selected == 's' or user_selected == 'simple' or user_selected == 'S'):
+        random_number = random.randint(1, 10);
+        print(user_name + ' ' + ' you have selected Simple level');
+        print('Enjoy the game...');
+        sleep(2)
+    elif (user_selected == 'h' or user_selected == 'hard' or user_selected == 'H'):
+        random_number = random.randint(1, 50);
+        print(user_name + ' ' + ' you have selected Hard level it will be very tough for you');
+        print('Enjoy the game...');
+        sleep(2)
+    elif (user_selected == 'v' or user_selected == 'very hard' or user_selected == 'v'):
+        random_number = random.randint(1, 100);
+        print(user_name + ' ' + ' you have selected Very Hard level,Let\'s see your Luck');
+        print('Enjoy the game...');
+        sleep(2)
+    else:
+        random.randint(0, 10);
+        print(user_name + ' ' + 'You have not selected any level i setted the defaulf game level as simple');
+        print('Enjoy the game...');
+        sleep(3)
+    user_can_try = 5;
+    chances_left = 0;
+    if (user_selected == 'v' or user_selected == 'very hard' or user_selected == 'v'):
+        while (True):
+            user_can_try = user_can_try - 1;
+            user_guess = int(input('Guess the number :'));
+            if (user_guess == random_number):
+                print('Cheecking your guess if that is right or not ')
+                sleep(3);
+                print(user_name + ' : ' + 'congrats! You won the game');
+                if (chances_left < 2):
+                    print('You won in :' + str(chances_left) + ' chances ONLY')
+                else:
+                    print(user_name + ' : ' + 'You Won the game');
+                    print('But you took :' + str(chances_left) + ' Chances');
+                break
+            else:
+                print('Cheecking your guess if that is right or not ')
+                sleep(0.6 );
+                if (user_can_try != 0):
+                    if (user_guess < random_number):
+                        print('HINT :-'+'Please selece bigger value')
+                        continue
+                    elif (user_guess > random_number):
+                        print('HINT :-'+'NO no it\'s to Big selece smaller value')
+                        continue
+                else:
+                    print(user_name + '  ' + 'have used all your 5 chances :');
+                    print('Batter Luck Next Time...');
+                    print('The serect Number was :' + str(random_number));
+                    break
+    else:
+        while (True):
+            user_can_try = user_can_try - 1;
+            chances_left = chances_left + 1;
+            user_guess = int(input('Guess the number :'));
+            if (user_guess == random_number):
+                print(user_name + ' : ' + 'congrats! You won the game');
+                if (chances_left < 2):
+                    print('You won in :' + str(chances_left) + ' chances ONLY')
+                else:
+                    print(user_name + ' : ' + 'You Won the game');
+                    print('But you took :' + str(chances_left) + ' Chances');
+                break
+            else:
+                if (user_can_try != 0):
+                    continue
+                else:
+                    print(user_name + ' ' + 'you have used all your 5 chances :');
+                    print('The serect Number was :' + str(random_number));
+                    print('Batter Luck Next Time...');
+                    break
+    print();
+    print('Hope you enjoyes the game ' + user_name);
+    print('Thanks for playing');
+    would_play_again=input('Hey do you want to play again :');
+    if(would_play_again=='yes' or would_play_again=='y' or would_play_again=='Y'):
+        print('Please wait..')
+        sleep(1)
+        print('Setting up the game environment');
+        sleep(1)
+        main_game()
+    else:
+        exit()
+main_game()
