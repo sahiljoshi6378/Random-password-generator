@@ -5,8 +5,8 @@ Computer = pyttsx3.init();
 voices = Computer.getProperty('voices');
 print(voices);
 Computer.setProperty('voice', voices[0].id)
-u_name = 'fhouse123'
-pwd = 774936;
+u_name = '123'
+pwd = 123;
 com_name = 'Google Pvt. Ltd.';
 
 
