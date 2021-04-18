@@ -1,6 +1,6 @@
 import time
 import random
-game_name=' WELCOME TO :Rock Paper sicer';
+game_name=' WELCOME TO :Rock Paper scissors';
 for i in game_name:
 
     time.sleep(0.1)
@@ -30,7 +30,7 @@ for i in user_details:
     print(i);
 time.sleep(1);
 print('Let\'s start the game');
-Computer_name='MR. ZOOM';
+Computer_name='MR. butler';
 time.sleep(1.5);
 print(f'Hey, meet our computer:{Computer_name}');
 computer_selections=['rock','paper','sicer'];
@@ -48,7 +48,7 @@ while (game_mode):
             time.sleep((1.5));
             userPoints.append(1);
             print('you won!');
-        elif (use_play == 'p' and compute_play == 'sicer'):
+        elif (use_play == 'p' and compute_play == 'scissors'):
             print('Ckeecking..')
             time.sleep((1.5));
             computerPoints.append(1);
@@ -76,7 +76,7 @@ while (game_mode):
             print('Ckeecking..')
             time.sleep((1.5));
             print('you both had tia');
-        elif (use_play == 's' and compute_play == 'sicer'):
+        elif (use_play == 's' and compute_play == 'scissors'):
             print('Ckeecking..')
             time.sleep((1.5));
             print('you both had tia');
@@ -90,7 +90,7 @@ while (game_mode):
             time.sleep((1.5));
             userPoints.append(1);
             print('you won!');
-        elif (use_play == 'r' and compute_play == 'sicer'):
+        elif (use_play == 'r' and compute_play == 'scissors'):
             print('Ckeecking..')
             time.sleep((1.5));
             userPoints.append(1);
