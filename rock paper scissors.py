@@ -1,9 +1,3 @@
-
-# Rules that will show who will won
-# 1.if someone win in a chance will get 1 point
-# 2. if there is a tai both will get half and half point
-# 3. after 5 rounds who will own the more prints then the other will be the winner
-# 4. if both had the same points the will be tia
 import time
 import random
 game_name=' WELCOME TO :Rock Paper sicer';
